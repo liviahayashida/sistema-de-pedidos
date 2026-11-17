@@ -15,8 +15,8 @@ public class Pedido {
     @Column(nullable = false, length = 80)
     private String cliente;
 
-    @Enumerated(EnumType.STRING)
-@Column(columnDefinition = "varchar(255)")
+    @Enumerated(EnumType.ORDINAL)
+// @Column(columnDefinition = "varchar(255)")
 private StatusPedido status;
 
 
