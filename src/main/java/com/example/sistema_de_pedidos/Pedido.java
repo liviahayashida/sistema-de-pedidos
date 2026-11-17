@@ -15,8 +15,8 @@ public class Pedido {
     @Column(nullable = false, length = 80)
     private String cliente;
 
-    @Enumerated(EnumType.ORDINAL)
-// @Column(columnDefinition = "varchar(255)")
+    @Enumerated(EnumType.STRING)
+@Column(columnDefinition = "varchar(255)")
 private StatusPedido status;
 
 
@@ -28,10 +28,10 @@ public void setStatus(StatusPedido status) {
     this.status = status;
 }
     @OneToMany(
-        mappedBy = "pedido",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
+    mappedBy = "pedido",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+)
     private List<ItemPedido> itens = new ArrayList<>();
 
     public void addItem(ItemPedido item) {

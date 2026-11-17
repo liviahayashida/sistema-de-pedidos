@@ -1,4 +1,3 @@
-// 
 
 package com.example.sistema_de_pedidos;
 
@@ -17,43 +16,24 @@ public class SistemaDePedidosApplication {
     @Bean
     CommandLineRunner executarTeste(PedidoRepository pedidoRepository) {
         return args -> {
-			Pedido pedido = new Pedido();
-pedido.setCliente("Maria");
-pedido.setStatus(StatusPedido.PENDENTE);
+            Pedido pedido = new Pedido();
+            pedido.setCliente("Maria");
+            pedido.setStatus(StatusPedido.PENDENTE);
 
-ItemPedido item1 = new ItemPedido();
-item1.setProduto("Teclado");
-item1.setPreco(100.0);
+            ItemPedido item1 = new ItemPedido();
+            item1.setProduto("Teclado");
+            item1.setPreco(100.0);
 
-ItemPedido item2 = new ItemPedido();
-item2.setProduto("Mouse");
-item2.setPreco(50.0);
+            ItemPedido item2 = new ItemPedido();
+            item2.setProduto("Mouse");
+            item2.setPreco(50.0);
 
-pedido.addItem(item1);
-pedido.addItem(item2);
+            pedido.addItem(item1);
+            pedido.addItem(item2);
 
-pedidoRepository.save(pedido);
+            Pedido pedidoSalvo = pedidoRepository.save(pedido);
 
-// Remover o primeiro item
-pedido.removeItem(item1);
-
-pedidoRepository.save(pedido);
-            // Pedido pedido = new Pedido();
-            // pedido.setCliente("Maria");
-            // pedido.setStatus(StatusPedido.PENDENTE);
-
-            // ItemPedido item1 = new ItemPedido();
-            // item1.setProduto("Teclado");
-            // item1.setPreco(100.0);
-
-            // ItemPedido item2 = new ItemPedido();
-            // item2.setProduto("Mouse");
-            // item2.setPreco(50.0);
-
-            // pedido.addItem(item1);
-            // pedido.addItem(item2);
-
-            // pedidoRepository.save(pedido);
+            pedidoRepository.delete(pedidoSalvo);
         };
     }
 }
