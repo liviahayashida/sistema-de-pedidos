@@ -13,12 +13,20 @@ public class ItemPedido {
     @Column(nullable = false)
     private String produto;
 
-    @Column(precision = 10, scale = 2)
-    private Double preco;
+   @Column
+private Double preco;
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
+
+    public void setProduto(String produto) {
+    this.produto = produto;
+}
+
+public void setPreco(Double preco) {
+    this.preco = preco;
+}
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;

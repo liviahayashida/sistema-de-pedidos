@@ -16,8 +16,17 @@ public class Pedido {
     private String cliente;
 
     @Enumerated(EnumType.STRING)
-    private StatusPedido status;
+@Column(columnDefinition = "varchar(255)")
+private StatusPedido status;
 
+
+public void setCliente(String cliente) {
+    this.cliente = cliente;
+}
+
+public void setStatus(StatusPedido status) {
+    this.status = status;
+}
     @OneToMany(
         mappedBy = "pedido",
         cascade = CascadeType.ALL,
